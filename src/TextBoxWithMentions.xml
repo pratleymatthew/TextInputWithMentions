@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget id="auraq.textboxwithmentions.TextBoxWithMentions" pluginWidget="true" needsEntityContext="true" supportedPlatform="Web" offlineCapable="true" xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../xsd/widget.xsd">
+    <name>Text Input With Mentions</name>
+    <description>Edit text input</description>
+    <icon/>
+    <properties>
+        <propertyGroup caption="General">
+            <propertyGroup caption="Data source">
+                <property key="textAttribute" type="attribute">
+                    <caption>Attribute</caption>
+                    <description/>
+                    <attributeTypes>
+                        <attributeType name="String"/>
+                    </attributeTypes>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="General">
+                <systemProperty key="Label" />
+                <property key="placeholder" type="string" required="false">
+                    <caption>Placeholder text</caption>
+                    <description/>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Editability">
+                <systemProperty key="Editability"/>
+            </propertyGroup>
+            <propertyGroup caption="Visibility">
+                <systemProperty key="Visibility"/>
+            </propertyGroup>
+        </propertyGroup>
+        <propertyGroup caption="Mentions">
+            <propertyGroup caption="Mentions">
+                <property key="mentions" type="object" isList="true">
+                    <caption>Mentions</caption>
+                    <description/>
+                    <properties>
+                        <propertyGroup caption="Trigger">
+                            <property key="trigger" type="string">
+                                <caption>Trigger</caption>
+                                <description>Trigger character(s) for mention</description>
+                            </property>
+                        </propertyGroup>
+                        <propertyGroup caption="Data Source">
+                            <property key="ref" type="association" selectableObjects="objectsDatasource">
+                                <caption>Association</caption>
+                                <description>Association to referenced object</description>
+                                <associationTypes>
+                                    <associationType name="ReferenceSet"/>
+                                </associationTypes>
+                            </property>
+                            <property key="objectsDatasource" type="datasource" isList="true">
+                                <caption>Selectable objects</caption>
+                                <description/>
+                            </property>
+                            <property key="displayAttribute" type="attribute" dataSource="objectsDatasource">
+                                <caption>Search/Display Attribute</caption>
+                                <description>Attribute the user will search on and be displayed in the text alongside the trigger</description>
+                                <attributeTypes>
+                                    <attributeType name="String"/>
+                                </attributeTypes>
+                            </property>
+                        </propertyGroup>
+                    </properties>
+                </property>
+            </propertyGroup>
+        </propertyGroup>
+        <propertyGroup caption="Events">
+                <propertyGroup caption="Events">
+                    <property key="onChangeAction" type="action" required="false">
+                        <caption>On change</caption>
+                        <description/>
+                    </property>
+                </propertyGroup>
+            </propertyGroup>
+    </properties>
+</widget>
