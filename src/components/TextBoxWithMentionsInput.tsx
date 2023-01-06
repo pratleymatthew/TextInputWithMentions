@@ -1,6 +1,6 @@
 import { CSSProperties, ChangeEvent, Component, ReactNode, createElement, ReactElement } from "react";
 import classNames from "classnames";
-import { MentionsInput, Mention, SuggestionDataItem, MentionProps } from 'react-mentions';
+import { MentionsInput, Mention, SuggestionDataItem, MentionProps, MentionItem } from 'react-mentions';
 import { MentionsType } from "typings/TextBoxWithMentionsProps";
 
 
@@ -68,8 +68,9 @@ export class TextBoxWithMentionsInput extends Component<InputProps> {
             : this.props.value;
     }
 
-    private onChange(event: ChangeEvent<HTMLInputElement>): void {
+    private onChange(event: ChangeEvent<HTMLInputElement>, _newValue: string, _newPlainTextValue: string, _mentions: MentionItem[]): void {
         this.setState({ editedValue: event.target.value });
+        // TODO: Remove any objects from reference sets that have been deleted from text });
     }
 
     private onBlur(): void {
@@ -86,6 +87,7 @@ export class TextBoxWithMentionsInput extends Component<InputProps> {
 
         this.props.mentionsList?.forEach( mentionItem => {
             const trigger = mentionItem.trigger;
+            const association = mentionItem.ref;
             const dataSource = mentionItem.objectsDatasource;
             const displayAttribute = mentionItem.displayAttribute;
 
@@ -103,6 +105,14 @@ export class TextBoxWithMentionsInput extends Component<InputProps> {
             data={suggestedItems}
             displayTransform={(_id, display) => `${trigger}${display}`}
             markup={`${trigger}__display__`}
+            onAdd={(id) => {
+                debugger; 
+                let newObject = dataSource.items?.find( item => item.id == id);
+                if (newObject != undefined){
+                    let referenceSet= association.value?.flat();
+                    referenceSet?.push(newObject);
+                    association.setValue(referenceSet)
+                }}}
             appendSpaceOnAdd={true} />;
 
             renderedMentions.push(renderedMention);
