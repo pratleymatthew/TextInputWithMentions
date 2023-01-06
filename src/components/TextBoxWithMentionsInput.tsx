@@ -1,6 +1,6 @@
-import { CSSProperties, ChangeEvent, Component, ReactNode, createElement } from "react";
+import { CSSProperties, ChangeEvent, Component, ReactNode, createElement, ReactElement } from "react";
 import classNames from "classnames";
-import { MentionsInput, Mention, SuggestionDataItem } from 'react-mentions';
+import { MentionsInput, Mention, SuggestionDataItem, MentionProps } from 'react-mentions';
 import { MentionsType } from "typings/TextBoxWithMentionsProps";
 
 
@@ -39,51 +39,9 @@ export class TextBoxWithMentionsInput extends Component<InputProps> {
     private renderMentionsInput(): ReactNode {
         const className = classNames("form-control", this.props.className);
         const labelledby = `${this.props.id}-label` 
-        + (this.props.hasError ? ` ${this.props.id}-error` : "");
-        
-        if (this.props.mentionsList != null) {
-            const trigger = this.props.mentionsList[0].trigger;
-            const dataSource = this.props.mentionsList[0].objectsDatasource;
-            const displayAttribute = this.props.mentionsList[0].displayAttribute;
-            let suggestedItems: SuggestionDataItem[] = [];
-
-            dataSource.items?.forEach(item => {
-                suggestedItems.push({
-                    id: item.id,
-                    display: displayAttribute.get(item).displayValue
-                });
-            });
-            
-            let mentionsInputNode: ReactNode = <MentionsInput
-                id={this.props.id}
-                className={className}
-                style={this.props.style}
-                value={this.getCurrentValue()}
-                tabIndex={this.props.tabIndex}
-                onChange={this.onChangeHandle}
-                disabled={this.props.disabled}
-                onBlur={this.onBlurHandle}
-                aria-labelledby={labelledby}
-                aria-invalid={this.props.hasError}
-                aria-required={this.props.required}
-                allowSpaceInQuery={true}
-                allowSuggestionsAboveCursor={true}
-                placeholder={this.props.placeholder}
-            >
-                <Mention
-                    trigger={trigger}
-                    data={suggestedItems}
-                    displayTransform={(_id, display) => `${trigger}${display}`}
-                    markup='@[__display__]'
-                    appendSpaceOnAdd={true} />
-            </MentionsInput>;
-
-            return mentionsInputNode;
-        }
-        else {
-            return <input
+        + (this.props.hasError ? ` ${this.props.id}-error` : "");           
+        let mentionsInputNode: ReactNode = <MentionsInput
             id={this.props.id}
-            type="textarea"
             className={className}
             style={this.props.style}
             value={this.getCurrentValue()}
@@ -94,9 +52,14 @@ export class TextBoxWithMentionsInput extends Component<InputProps> {
             aria-labelledby={labelledby}
             aria-invalid={this.props.hasError}
             aria-required={this.props.required}
+            allowSpaceInQuery={true}
+            allowSuggestionsAboveCursor={true}
             placeholder={this.props.placeholder}
-        />;
-        }
+        >
+            {this.generateMentions()}
+        </MentionsInput>;
+
+        return mentionsInputNode;
     }
 
     private getCurrentValue(): string {
@@ -116,5 +79,34 @@ export class TextBoxWithMentionsInput extends Component<InputProps> {
             this.props.onLeave(currentValue, currentValue !== inputValue);
         }
         this.setState({ editedValue: undefined });
+    }
+
+    private generateMentions() : ReactElement<MentionProps>[] {
+        let renderedMentions: ReactElement<MentionProps>[] = [];
+
+        this.props.mentionsList?.forEach( mentionItem => {
+            const trigger = mentionItem.trigger;
+            const dataSource = mentionItem.objectsDatasource;
+            const displayAttribute = mentionItem.displayAttribute;
+
+            let suggestedItems: SuggestionDataItem[] = [];
+
+            dataSource.items?.forEach(item => {
+                suggestedItems.push({
+                    id: item.id,
+                    display: displayAttribute.get(item).displayValue
+                });
+            });
+
+            const renderedMention =  <Mention
+            trigger={trigger}
+            data={suggestedItems}
+            displayTransform={(_id, display) => `${trigger}${display}`}
+            markup={`${trigger}__display__`}
+            appendSpaceOnAdd={true} />;
+
+            renderedMentions.push(renderedMention);
+        })
+        return renderedMentions;
     }
 }
