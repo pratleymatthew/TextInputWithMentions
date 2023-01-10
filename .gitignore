@@ -14,7 +14,6 @@ mxproject
 coverage
 
 **/results
-mendixProject
 **/e2e/diffs
 **/screenshot
 **/screenshot-results
