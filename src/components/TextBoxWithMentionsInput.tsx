@@ -104,9 +104,8 @@ export class TextBoxWithMentionsInput extends Component<InputProps> {
             trigger={trigger}
             data={suggestedItems}
             displayTransform={(_id, display) => `${trigger}${display}`}
-            markup={`${trigger}__display__`}
+            markup={`${trigger}[__display__]`}
             onAdd={(id) => {
-                debugger; 
                 let newObject = dataSource.items?.find( item => item.id == id);
                 if (newObject != undefined){
                     let referenceSet= association.value?.flat();
