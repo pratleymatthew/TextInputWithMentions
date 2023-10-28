@@ -72,7 +72,20 @@ export class TextBoxWithMentionsInput extends Component<InputProps> {
 
     private onChange(event: ChangeEvent<HTMLInputElement>, _newValue: string, _newPlainTextValue: string, _mentions: MentionItem[]): void {
         this.setState({ editedValue: event.target.value });
-        // TODO: Remove any objects from reference sets that have been deleted from text });
+        // Remove any objects from reference sets that have been deleted from text
+        this.props.mentionsList?.forEach( mentionItem => {
+            const association = mentionItem.ref;
+            let referenceSet = association.value?.flat();
+            referenceSet?.forEach(refValue => {
+                let mentionedRefValue = _mentions.find(mentionedItem => {
+                    return mentionedItem.id == refValue.id;
+                })
+                if (mentionedRefValue == null) {
+                    referenceSet?.splice(referenceSet?.indexOf(refValue));
+                }
+            })
+            association.setValue(referenceSet);
+        })
     }
 
     private onBlur(): void {
@@ -106,7 +119,7 @@ export class TextBoxWithMentionsInput extends Component<InputProps> {
             trigger={trigger}
             data={suggestedItems}
             displayTransform={(_id, display) => `${trigger}${display}`}
-            markup={`${trigger}[__display__]`}
+            markup={`${trigger}[__display__](__id__)`}
             onAdd={(id) => {
                 let newObject = dataSource.items?.find( item => item.id == id);
                 if (newObject != undefined){
