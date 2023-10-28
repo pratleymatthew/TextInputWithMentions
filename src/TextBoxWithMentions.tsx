@@ -22,6 +22,7 @@ class TextBoxWithMentions extends Component<TextBoxWithMentionsContainerProps> {
                 hasError={!!validationFeedback}
                 mentionsList={this.props.mentions}
                 placeholder={this.props.placeholder}
+                inputType={this.props.inputType}
             />
             <Alert>{validationFeedback}</Alert>
         </Fragment>;

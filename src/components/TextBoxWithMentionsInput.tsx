@@ -1,7 +1,7 @@
 import { CSSProperties, ChangeEvent, Component, ReactNode, createElement, ReactElement } from "react";
 import classNames from "classnames";
 import { MentionsInput, Mention, SuggestionDataItem, MentionProps, MentionItem } from 'react-mentions';
-import { MentionsType } from "typings/TextBoxWithMentionsProps";
+import { InputTypeEnum, MentionsType } from "typings/TextBoxWithMentionsProps";
 
 
 export interface InputProps {
@@ -12,6 +12,7 @@ export interface InputProps {
     style?: CSSProperties;
     tabIndex?: number;
     placeholder?: string;
+    inputType: InputTypeEnum;
     hasError?: boolean;
     required?: boolean;
     disabled?: boolean;
@@ -55,6 +56,7 @@ export class TextBoxWithMentionsInput extends Component<InputProps> {
             allowSpaceInQuery={true}
             allowSuggestionsAboveCursor={true}
             placeholder={this.props.placeholder}
+            singleLine={this.props.inputType == "textBox"}
         >
             {this.generateMentions()}
         </MentionsInput>;

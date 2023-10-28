@@ -5,6 +5,8 @@
  */
 import { ActionValue, EditableValue, ListValue, ListAttributeValue, ReferenceSetValue } from "mendix";
 
+export type InputTypeEnum = "textArea" | "textBox";
+
 export interface MentionsType {
     trigger: string;
     ref: ReferenceSetValue;
@@ -25,6 +27,7 @@ export interface TextBoxWithMentionsContainerProps {
     id: string;
     textAttribute: EditableValue<string>;
     placeholder: string;
+    inputType: InputTypeEnum;
     mentions: MentionsType[];
     onChangeAction?: ActionValue;
 }
@@ -33,6 +36,7 @@ export interface TextBoxWithMentionsPreviewProps {
     readOnly: boolean;
     textAttribute: string;
     placeholder: string;
+    inputType: InputTypeEnum;
     mentions: MentionsPreviewType[];
     onChangeAction: {} | null;
 }

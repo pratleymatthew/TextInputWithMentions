@@ -20,6 +20,14 @@
                     <caption>Placeholder text</caption>
                     <description/>
                 </property>
+                <property key="inputType" type="enumeration" required="true" defaultValue="textArea">
+                    <caption>Input Type</caption>
+                    <description/>
+                    <enumerationValues>
+                        <enumerationValue key="textArea">Text Area</enumerationValue>
+                        <enumerationValue key="textBox">Text Box</enumerationValue>
+                    </enumerationValues>
+                </property>
             </propertyGroup>
             <propertyGroup caption="Editability">
                 <systemProperty key="Editability"/>
