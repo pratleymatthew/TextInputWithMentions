@@ -5,7 +5,7 @@ Place your custom CSS here
 :root {
     --primary-background-color: #fff;
     --primary-color: #264ae5;
-    --secondary-color: #fff;
+    --secondary-color: #f4f4f4;
     --border-color: #e7e7e9;
     --primary-text-color: #0a1325;
 }
@@ -78,7 +78,9 @@ Place your custom CSS here
 }
 
 .mentions__mention {
-    color: var(--primary-color);
+    color: var(--primary-text-color);
+    background-color: var(--border-color);
     position: relative;
+    border-radius: 5px;
     z-index: 1;
 }
