@@ -2,6 +2,7 @@ import { CSSProperties, ChangeEvent, Component, ReactNode, createElement, ReactE
 import classNames from "classnames";
 import { MentionsInput, Mention, SuggestionDataItem, MentionProps, MentionItem } from 'react-mentions';
 import { InputTypeEnum, MentionsType } from "typings/TextBoxWithMentionsProps";
+import { Option, ObjectItem } from "mendix";
 
 export interface InputProps {
     id?: string;
@@ -75,15 +76,16 @@ export class TextBoxWithMentionsInput extends Component<InputProps> {
         this.props.mentionsList?.forEach( mentionItem => {
             const association = mentionItem.ref;
             let referenceSet = association.value?.flat();
+            let updatedSet: Option<ObjectItem[]> = [];
             referenceSet?.forEach(refValue => {
                 let mentionedRefValue = _mentions.find(mentionedItem => {
                     return mentionedItem.id == refValue.id;
                 })
-                if (mentionedRefValue == null) {
-                    referenceSet?.splice(referenceSet?.indexOf(refValue));
+                if (mentionedRefValue != null) {
+                    updatedSet?.push(refValue);
                 }
             })
-            association.setValue(referenceSet);
+            association.setValue(updatedSet);
         })
     }
 
