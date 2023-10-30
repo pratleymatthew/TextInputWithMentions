@@ -3,7 +3,6 @@ import classNames from "classnames";
 import { MentionsInput, Mention, SuggestionDataItem, MentionProps, MentionItem } from 'react-mentions';
 import { InputTypeEnum, MentionsType } from "typings/TextBoxWithMentionsProps";
 
-
 export interface InputProps {
     id?: string;
     value: string;
@@ -38,7 +37,7 @@ export class TextBoxWithMentionsInput extends Component<InputProps> {
     }
 
     private renderMentionsInput(): ReactNode {
-        const className = classNames("form-control", this.props.className);
+        const className = classNames("mentions", this.props.className);
         const labelledby = `${this.props.id}-label` 
         + (this.props.hasError ? ` ${this.props.id}-error` : "");           
         let mentionsInputNode: ReactNode = <MentionsInput
@@ -118,6 +117,8 @@ export class TextBoxWithMentionsInput extends Component<InputProps> {
             const renderedMention =  <Mention
             trigger={trigger}
             data={suggestedItems}
+            className="mentions__mention"
+            style=""
             displayTransform={(_id, display) => `${trigger}${display}`}
             markup={`${trigger}[__display__](__id__)`}
             onAdd={(id) => {

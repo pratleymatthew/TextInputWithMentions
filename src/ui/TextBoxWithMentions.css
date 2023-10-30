@@ -1,6 +1,84 @@
 /*
 Place your custom CSS here
 */
-.widget-hello-world {
 
+:root {
+    --primary-background-color: #fff;
+    --primary-color: #264ae5;
+    --secondary-color: #fff;
+    --border-color: #e7e7e9;
+    --primary-text-color: #0a1325;
+}
+  
+.mentions--singleLine .mentions__control {
+    padding: 8px 8px;
+}
+
+.mentions--singleLine .mentions__input {
+    display: flex;
+    flex: 1;
+    min-width: 50px;
+    height: auto;
+    padding: 8px 8px;
+    resize: vertical;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    color: var(--primary-text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--primary-background-color) !important;
+    background-image: none;
+    box-shadow: none;
+    font-size: 14px;
+    line-height: 1.428571429;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.mentions--multiLine .mentions__control {
+    padding: 8px 8px;
+}
+
+.mentions--multiLine .mentions__input {
+    display: flex;
+    flex: 1;
+    min-width: 50px;
+    height: auto;
+    min-height: 20px;
+    padding: 8px 8px;
+    resize: vertical;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    color: var(--primary-text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--primary-background-color) !important;
+    background-image: none;
+    box-shadow: none;
+    font-size: 14px;
+    line-height: 1.428571429;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.mentions__suggestions__list {
+    background-color: var(--primary-background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+.mentions__suggestions__item {
+    padding: 5px 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.mentions__suggestions__item--focused {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.mentions__mention {
+    color: var(--primary-color);
+    position: relative;
+    z-index: 1;
 }
