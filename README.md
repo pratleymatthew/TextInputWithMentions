@@ -5,20 +5,20 @@ Text input that allows users to tag users, as well as other objects. Using libra
 - Tag users and other objects in a text field
 
 ## Widget Configuration
-General Tab:
-    - Select the String attribute to be edited by the user
-    - Also Configure Label, Placeholder, Editablility and Visibility here 
+General Tab:</br>
+- Select the String attribute to be edited by the user</br>
+- Also Configure Label, Placeholder, Editablility and Visibility here </br>
+</br>
+Mentions Tab:</br>
+This is where to configure what objects can be mentioned and the associations to be set when an object is mentioned.</br>
+- Click "New"</br>
+- Add a trigger - this is the text that will intiate the mention</br>
+- Navigate to the "Data Source" tab</br>
+- Select the association to be set when an object is mentioned</br>
+- Select the data that can be selected</br>
+- Select the attribute to display </br>
 
-Mentions Tab:
-This is where to configure what objects can be mentioned and the associations to be set when an object is mentioned
-    - Click "New"
-    - Add a trigger - this is the text that will intiate the mention
-    - Navigate to the "Data Source" tab
-    - Select the association to be set when an object is mentioned
-    - Select the data that can be selected
-    - Select the attribute to display 
-
-##Known Issues/Limitations
+## Known Issues/Limitations
 - Widget will remove any objects associated via the selected associations if they are not mentioned in the text
     - Workaround: Only manage the selected associations through the widget   
 
