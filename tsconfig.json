@@ -3,5 +3,8 @@
   "compilerOptions": {
     "baseUrl": "./"
   },
-  "include": ["./src", "./typings"]
+  "include": ["./src", "./typings"],
+  "paths": {
+    "react": [ "./node_modules/@types/react" ]
+  }
 }

@@ -1,13 +1,12 @@
 import { Component, ReactNode, createElement, Fragment } from "react";
 import { Alert } from "./components/Alert";
-import { hot } from "react-hot-loader/root";
 
 import { TextBoxWithMentionsContainerProps } from "../typings/TextBoxWithMentionsProps";
 import { TextBoxWithMentionsInput } from "./components/TextBoxWithMentionsInput";
 
 import "./ui/TextBoxWithMentions.css";
 
-class TextBoxWithMentions extends Component<TextBoxWithMentionsContainerProps> {
+export class TextBoxWithMentions extends Component<TextBoxWithMentionsContainerProps> {
     private readonly onLeaveHandle = this.onLeave.bind(this);
     render(): ReactNode {
         const value = this.props.textAttribute.value || "";
@@ -37,5 +36,3 @@ class TextBoxWithMentions extends Component<TextBoxWithMentionsContainerProps> {
         }
     }
 }
-
-export default hot(TextBoxWithMentions);

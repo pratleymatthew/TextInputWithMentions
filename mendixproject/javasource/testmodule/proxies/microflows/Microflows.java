@@ -38,6 +38,12 @@ public class Microflows
 		IMendixObject result = (IMendixObject)Core.microflowCall("TestModule.DS_Note_CreateTest").withParams(params).execute(context);
 		return result == null ? null : testmodule.proxies.Note.initialize(context, result);
 	}
+	public static void oCH_Test(IContext context, testmodule.proxies.Note _note)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		params.put("Note", _note == null ? null : _note.getMendixObject());
+		Core.microflowCall("TestModule.OCH_Test").withParams(params).execute(context);
+	}
 	public static boolean vAL_Note(IContext context, testmodule.proxies.Note _note)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();

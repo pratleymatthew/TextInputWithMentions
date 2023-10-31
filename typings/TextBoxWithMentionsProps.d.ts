@@ -17,7 +17,7 @@ export interface MentionsType {
 export interface MentionsPreviewType {
     trigger: string;
     ref: string;
-    objectsDatasource: {} | { type: string } | null;
+    objectsDatasource: {} | { caption: string } | { type: string } | null;
     displayAttribute: string;
 }
 
