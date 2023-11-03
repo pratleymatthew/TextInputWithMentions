@@ -20,7 +20,8 @@ This is where to configure what objects can be mentioned and the associations to
 
 ## Known Issues/Limitations
 - Widget will remove any objects associated via the selected associations if they are not mentioned in the text
-    - Workaround: Only manage the selected associations through the widget   
+    - Workaround: Only manage the selected associations through the widget
+- String Attributes that are edited using this widget are best displayed using the widget, as the widget uses a text markup to display mentions
 
 ## Issues, suggestions and feature requests
 Please raise any issues, suggestions and feature requests [here](https://github.com/pratleymatthew/TextInputWithMentions/issues)
