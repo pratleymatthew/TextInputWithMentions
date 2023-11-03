@@ -11,20 +11,22 @@ export class TextBoxWithMentions extends Component<TextBoxWithMentionsContainerP
     render(): ReactNode {
         const value = this.props.textAttribute.value || "";
         const validationFeedback = this.props.textAttribute.validation;
-        return <Fragment>
-            <TextBoxWithMentionsInput
-                id={this.props.id}
-                value={value}
-                tabIndex={this.props.tabIndex}
-                disabled={this.props.textAttribute.readOnly}
-                onLeave={this.onLeaveHandle}
-                hasError={!!validationFeedback}
-                mentionsList={this.props.mentions}
-                placeholder={this.props.placeholder}
-                inputType={this.props.inputType}
-            />
-            <Alert>{validationFeedback}</Alert>
-        </Fragment>;
+        return (
+            <Fragment>
+                <TextBoxWithMentionsInput
+                    id={this.props.id}
+                    value={value}
+                    tabIndex={this.props.tabIndex}
+                    disabled={this.props.textAttribute.readOnly}
+                    onLeave={this.onLeaveHandle}
+                    hasError={!!validationFeedback}
+                    mentionsList={this.props.mentions}
+                    placeholder={this.props.placeholder}
+                    inputType={this.props.inputType}
+                />
+                <Alert>{validationFeedback}</Alert>
+            </Fragment>
+        );
     }
     private onLeave(value: string, isChanged: boolean): void {
         if (!isChanged) {

@@ -5,7 +5,7 @@ import { TextBoxWithMentionsPreviewProps } from "../typings/TextBoxWithMentionsP
 export class preview extends Component<TextBoxWithMentionsPreviewProps> {
     render(): ReactNode {
         const value = `[${this.props.textAttribute}]`;
-        return <TextBoxWithMentionsInput value={value} inputType={this.props.inputType}/>;
+        return <TextBoxWithMentionsInput value={value} inputType={this.props.inputType} />;
     }
 }
 
