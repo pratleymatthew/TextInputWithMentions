@@ -25,3 +25,6 @@ This is where to configure what objects can be mentioned and the associations to
 
 ## Issues, suggestions and feature requests
 Please raise any issues, suggestions and feature requests [here](https://github.com/pratleymatthew/TextInputWithMentions/issues)
+
+## Demo 
+Go to https://aqmentions-sandbox.mxapps.io/ to view a demo
