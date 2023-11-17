@@ -23,6 +23,7 @@ export class TextBoxWithMentions extends Component<TextBoxWithMentionsContainerP
                     mentionsList={this.props.mentions}
                     placeholder={this.props.placeholder}
                     inputType={this.props.inputType}
+                    appendSpaceOnAdd={this.props.appendSpaceOnAdd}
                 />
                 <Alert>{validationFeedback}</Alert>
             </Fragment>

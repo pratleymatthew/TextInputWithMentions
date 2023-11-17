@@ -18,6 +18,7 @@ export interface InputProps {
     disabled?: boolean;
     onLeave?: (value: string, changed: boolean) => void;
     mentionsList?: MentionsType[]; // Mentions list not specified for preview of widget in studio pro
+    appendSpaceOnAdd?: boolean;
 }
 
 interface InputState {
@@ -112,7 +113,7 @@ export class TextBoxWithMentionsInput extends Component<InputProps> {
             const association = mentionItem.ref;
             const dataSource = mentionItem.objectsDatasource;
             const displayAttribute = mentionItem.displayAttribute;
-            const appendSpaceOnAdd = true;
+            const appendSpaceOnAdd = this.props.appendSpaceOnAdd;
 
             const suggestedItems: SuggestionDataItem[] = [];
 

@@ -10,7 +10,7 @@
             <propertyGroup caption="Data source">
                 <property key="textAttribute" type="attribute">
                     <caption>Attribute</caption>
-                    <description/>
+                    <description>Attribute to be displayed/edited by the user</description>
                     <attributeTypes>
                         <attributeType name="String"/>
                     </attributeTypes>
@@ -71,6 +71,10 @@
                             </property>
                         </propertyGroup>
                     </properties>
+                </property>
+                <property key="appendSpaceOnAdd" type="boolean" defaultValue="true">
+                    <caption>Add Space After Mention</caption>
+                    <description>If set to true, a space will automatically be added after an object is mentioned/tagged</description>
                 </property>
             </propertyGroup>
         </propertyGroup>

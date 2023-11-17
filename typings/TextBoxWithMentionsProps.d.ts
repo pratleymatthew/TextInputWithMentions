@@ -29,6 +29,7 @@ export interface TextBoxWithMentionsContainerProps {
     placeholder: string;
     inputType: InputTypeEnum;
     mentions: MentionsType[];
+    appendSpaceOnAdd: boolean;
     onChangeAction?: ActionValue;
 }
 
@@ -38,5 +39,6 @@ export interface TextBoxWithMentionsPreviewProps {
     placeholder: string;
     inputType: InputTypeEnum;
     mentions: MentionsPreviewType[];
+    appendSpaceOnAdd: boolean;
     onChangeAction: {} | null;
 }
