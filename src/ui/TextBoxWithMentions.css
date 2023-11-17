@@ -8,6 +8,8 @@ Place your custom CSS here
     --secondary-color: #f4f4f4;
     --border-color: #e7e7e9;
     --primary-text-color: #0a1325;
+    --max-list-height: 186px;
+    --scrollbar-color: #264ae52e;
 }
   
 .mentions--singleLine .mentions__control {
@@ -64,6 +66,18 @@ Place your custom CSS here
 .mentions__suggestions__list {
     background-color: var(--primary-background-color);
     border: 1px solid var(--border-color);
+    border-radius: 5px;
+    max-height: var(--max-list-height);
+    overflow-y: scroll;
+}
+
+.mentions__suggestions__list::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+}
+
+.mentions__suggestions__list::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-color);
     border-radius: 5px;
 }
 
