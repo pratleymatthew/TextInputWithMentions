@@ -44,31 +44,39 @@
                     <caption>Mentions</caption>
                     <description/>
                     <properties>
-                        <propertyGroup caption="Trigger">
-                            <property key="trigger" type="string">
-                                <caption>Trigger</caption>
-                                <description>Trigger character(s) for mention</description>
-                            </property>
-                        </propertyGroup>
-                        <propertyGroup caption="Data Source">
-                            <property key="ref" type="association" selectableObjects="objectsDatasource">
-                                <caption>Association</caption>
-                                <description>Association to referenced object</description>
-                                <associationTypes>
-                                    <associationType name="ReferenceSet"/>
-                                </associationTypes>
-                            </property>
-                            <property key="objectsDatasource" type="datasource" isList="true">
-                                <caption>Selectable objects</caption>
-                                <description/>
-                            </property>
-                            <property key="displayAttribute" type="attribute" dataSource="objectsDatasource">
-                                <caption>Search/Display Attribute</caption>
-                                <description>Attribute the user will search on and be displayed in the text alongside the trigger</description>
-                                <attributeTypes>
-                                    <attributeType name="String"/>
-                                </attributeTypes>
-                            </property>
+                        <propertyGroup caption="Mention">
+                            <propertyGroup caption="Trigger">
+                                <property key="trigger" type="string">
+                                    <caption>Trigger</caption>
+                                    <description>Trigger character(s) for mention</description>
+                                </property>
+                            </propertyGroup>
+                            <propertyGroup caption="Data Source">
+                                <property key="ref" type="association" selectableObjects="objectsDatasource">
+                                    <caption>Association</caption>
+                                    <description>Association to referenced object</description>
+                                    <associationTypes>
+                                        <associationType name="ReferenceSet"/>
+                                    </associationTypes>
+                                </property>
+                                <property key="objectsDatasource" type="datasource" isList="true">
+                                    <caption>Selectable objects</caption>
+                                    <description/>
+                                </property>
+                                <property key="displayAttribute" type="attribute" dataSource="objectsDatasource">
+                                    <caption>Search/Display Attribute</caption>
+                                    <description>Attribute the user will search on and be displayed in the text alongside the trigger</description>
+                                    <attributeTypes>
+                                        <attributeType name="String"/>
+                                    </attributeTypes>
+                                </property>
+                            </propertyGroup>
+                            <propertyGroup caption="Style">
+                                <property key="classes" type="string" required="false">
+                                    <caption>Class</caption>
+                                    <description>Classes to apply to the mentioned object within the control</description>
+                                </property>
+                            </propertyGroup>
                         </propertyGroup>
                     </properties>
                 </property>

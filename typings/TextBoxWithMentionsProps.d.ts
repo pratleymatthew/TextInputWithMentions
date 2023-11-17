@@ -12,6 +12,7 @@ export interface MentionsType {
     ref: ReferenceSetValue;
     objectsDatasource: ListValue;
     displayAttribute: ListAttributeValue<string>;
+    classes: string;
 }
 
 export interface MentionsPreviewType {
@@ -19,6 +20,7 @@ export interface MentionsPreviewType {
     ref: string;
     objectsDatasource: {} | { caption: string } | { type: string } | null;
     displayAttribute: string;
+    classes: string;
 }
 
 export interface TextBoxWithMentionsContainerProps {

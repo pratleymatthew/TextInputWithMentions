@@ -23454,4 +23454,9 @@ div:not(.table-compact) > .table .th .dropdown-container .dropdown-list {
   border-width: 0;
 }
 
+.brand-danger {
+  background-color: red;
+  color: white;
+}
+
 /*# sourceMappingURL=theme.compiled.css.map */

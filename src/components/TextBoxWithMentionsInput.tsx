@@ -114,6 +114,7 @@ export class TextBoxWithMentionsInput extends Component<InputProps> {
             const dataSource = mentionItem.objectsDatasource;
             const displayAttribute = mentionItem.displayAttribute;
             const appendSpaceOnAdd = this.props.appendSpaceOnAdd;
+            const className = classNames("mentions__mention", mentionItem.classes);
 
             const suggestedItems: SuggestionDataItem[] = [];
 
@@ -128,8 +129,7 @@ export class TextBoxWithMentionsInput extends Component<InputProps> {
                 <Mention
                     trigger={trigger}
                     data={suggestedItems}
-                    className="mentions__mention"
-                    style=""
+                    className={className}
                     displayTransform={(_id, display) => `${trigger}${display}`}
                     markup={`${trigger}[__display__](__id__)`}
                     onAdd={id => {
